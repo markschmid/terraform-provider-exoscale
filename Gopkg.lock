@@ -312,10 +312,10 @@
   revision = "c2fbb09e6c084fe3ebe95fce0f1cc5297c152026"
 
 [[projects]]
+  branch = "less-types"
   name = "github.com/exoscale/egoscale"
   packages = ["."]
-  revision = "a79de89b500dd3459e5a24518fab132be6f41a95"
-  version = "v0.9.25"
+  revision = "41d9f1b0aa87c9fc249726e5d4acbe318d1635a6"
 
 [[projects]]
   name = "github.com/fatih/color"
@@ -1165,6 +1165,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "63e7787691a90a126bfc652a0e5cb573bf1bdc2e1fe92c417010cc8601427d3e"
+  inputs-digest = "aea59d3eeb882af5ca499e11d82b99fbd5d97a69fc0b866962b821385292b584"
   solver-name = "gps-cdcl"
   solver-version = 1
