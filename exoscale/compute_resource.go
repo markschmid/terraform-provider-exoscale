@@ -331,13 +331,13 @@ func createCompute(d *schema.ResourceData, meta interface{}) error {
 	}
 
 	/* Copy VM to our struct */
-	machine := resp.(*egoscale.DeployVirtualMachineResponse).VirtualMachine
+	machine := resp.(*egoscale.VirtualMachine)
 	d.SetId(machine.ID)
 
 	if cmd := createTags(d, "tags", machine.ResourceType()); cmd != nil {
 		if err := client.BooleanRequestWithContext(ctx, cmd); err != nil {
 			// Attempting to destroy the freshly created machine
-			if e := client.DeleteWithContext(ctx, &machine); e != nil {
+			if e := client.DeleteWithContext(ctx, machine); e != nil {
 				log.Printf("[WARNING] Failure to create the tags, but the machine was deployed. %v", e)
 			}
 
@@ -392,7 +392,7 @@ func readCompute(d *schema.ResourceData, meta interface{}) error {
 	if err != nil {
 		return err
 	}
-	userData, err := resp.(*egoscale.GetVirtualMachineUserDataResponse).VirtualMachineUserData.Decode()
+	userData, err := resp.(*egoscale.VirtualMachineUserData).Decode()
 	if err != nil {
 		return err
 	}
@@ -435,7 +435,7 @@ func readCompute(d *schema.ResourceData, meta interface{}) error {
 				return err
 			}
 		} else {
-			pwd := resp.(*egoscale.GetVMPasswordResponse).Password
+			pwd := resp.(*egoscale.Password)
 			// XXX https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=34014652
 			password = fmt.Sprintf("base64:%s", pwd.EncryptedPassword)
 			d.Set("password", password)
@@ -696,8 +696,8 @@ func updateCompute(d *schema.ResourceData, meta interface{}) error {
 			return err
 		}
 
-		m := resp.(*egoscale.StopVirtualMachineResponse).VirtualMachine
-		applyCompute(d, &m)
+		m := resp.(*egoscale.VirtualMachine)
+		applyCompute(d, m)
 		d.SetPartial("state")
 	}
 

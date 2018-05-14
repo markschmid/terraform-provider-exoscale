@@ -69,7 +69,7 @@ func createElasticIP(d *schema.ResourceData, meta interface{}) error {
 		return err
 	}
 
-	elasticIP := resp.(*egoscale.AssociateIPAddressResponse).IPAddress
+	elasticIP := resp.(*egoscale.IPAddress)
 	d.SetId(elasticIP.ID)
 
 	if cmd := createTags(d, "tags", elasticIP.ResourceType()); cmd != nil {

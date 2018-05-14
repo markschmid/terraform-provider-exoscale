@@ -81,7 +81,7 @@ func createSecondaryIP(d *schema.ResourceData, meta interface{}) error {
 		return err
 	}
 
-	secondaryIP := resp.(*egoscale.AddIPToNicResponse).NicSecondaryIP
+	secondaryIP := resp.(*egoscale.NicSecondaryIP)
 
 	d.SetId(secondaryIP.ID)
 	// XXX this is fragile
