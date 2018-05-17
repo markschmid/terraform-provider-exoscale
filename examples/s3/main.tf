@@ -1,5 +1,5 @@
 provider "aws" {
-  version = "~> 1.12.0"
+  version = "~> 1.19"
   access_key = "${var.key}"
   secret_key = "${var.secret}"
 
@@ -25,4 +25,5 @@ resource "aws_s3_bucket" "testbucket" {
 resource "aws_s3_bucket_object" "testobj" {
   bucket = "${aws_s3_bucket.testbucket.bucket}"
   key = "some-text.txt"
+  source = "some-text.txt"
 }
