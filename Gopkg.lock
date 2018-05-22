@@ -12,8 +12,8 @@
     "internal/version",
     "storage"
   ]
-  revision = "056a55f54a6cc77b440b31a56a5e7c3982d32811"
-  version = "v0.22.0"
+  revision = "0fd7230b2a7505833d5f69b75cbd6c9582401479"
+  version = "v0.23.0"
 
 [[projects]]
   name = "github.com/Azure/azure-sdk-for-go"
@@ -35,8 +35,8 @@
     "autorest/to",
     "autorest/validation"
   ]
-  revision = "eaa7994b2278094c904d31993d26f56324db3052"
-  version = "v10.8.1"
+  revision = "9157a90cf06a2f000b8a67181e1dd501cdb5753e"
+  version = "v10.8.2"
 
 [[projects]]
   branch = "master"
@@ -228,8 +228,8 @@
     "service/waf",
     "service/wafregional"
   ]
-  revision = "6a2f953ac4f08681e684e199039f0d6672d5deea"
-  version = "v1.13.48"
+  revision = "cf00d544fc3c02f31e05e8d02444a1325d3a840b"
+  version = "v1.13.53"
 
 [[projects]]
   name = "github.com/beevik/etree"
@@ -315,13 +315,13 @@
   branch = "less-types"
   name = "github.com/exoscale/egoscale"
   packages = ["."]
-  revision = "41d9f1b0aa87c9fc249726e5d4acbe318d1635a6"
+  revision = "7fbe17ac9ea7191b1e2e058d113764693305a54b"
 
 [[projects]]
   name = "github.com/fatih/color"
   packages = ["."]
-  revision = "507f6050b8568533fb3f5504de8e5205fa62a114"
-  version = "v1.6.0"
+  revision = "5b77d2a35fb0ede96d138fc9a99f5c9b6aef11b4"
+  version = "v1.7.0"
 
 [[projects]]
   name = "github.com/go-ini/ini"
@@ -356,7 +356,7 @@
   branch = "master"
   name = "github.com/golang/snappy"
   packages = ["."]
-  revision = "553a641470496b2327abcac10b36396bd98e45c9"
+  revision = "2e65f85255dbc3072edf28d6b5b8efc472979f5a"
 
 [[projects]]
   name = "github.com/googleapis/gax-go"
@@ -374,6 +374,7 @@
     "openstack/blockstorage/extensions/volumeactions",
     "openstack/blockstorage/v1/volumes",
     "openstack/blockstorage/v2/volumes",
+    "openstack/blockstorage/v3/volumes",
     "openstack/compute/v2/extensions/availabilityzones",
     "openstack/compute/v2/extensions/bootfromvolume",
     "openstack/compute/v2/extensions/floatingips",
@@ -421,6 +422,10 @@
     "openstack/networking/v2/extensions/security/groups",
     "openstack/networking/v2/extensions/security/rules",
     "openstack/networking/v2/extensions/subnetpools",
+    "openstack/networking/v2/extensions/vpnaas/endpointgroups",
+    "openstack/networking/v2/extensions/vpnaas/ikepolicies",
+    "openstack/networking/v2/extensions/vpnaas/ipsecpolicies",
+    "openstack/networking/v2/extensions/vpnaas/services",
     "openstack/networking/v2/networks",
     "openstack/networking/v2/ports",
     "openstack/networking/v2/subnets",
@@ -508,7 +513,7 @@
   branch = "master"
   name = "github.com/hashicorp/go-retryablehttp"
   packages = ["."]
-  revision = "7d12bb7d610c15e57fbbe304084a87fe87574591"
+  revision = "763e4b5d05f5534071213c67c335aad6b0d318a7"
 
 [[projects]]
   branch = "master"
@@ -915,14 +920,14 @@
 [[projects]]
   name = "github.com/terraform-providers/terraform-provider-aws"
   packages = ["aws"]
-  revision = "5f91304b426b9de296937c9504a3e7d88e5a85d7"
-  version = "v1.18.0"
+  revision = "d08e6e67439d12fff84116f4c726ead33d32f9c7"
+  version = "v1.19.0"
 
 [[projects]]
   name = "github.com/terraform-providers/terraform-provider-openstack"
   packages = ["openstack"]
-  revision = "115895b9487cff5cab842eba457bbaa9b443add3"
-  version = "v1.4.0"
+  revision = "876baa802e1795f5555eca8f9d88f5410adb21ff"
+  version = "v1.5.0"
 
 [[projects]]
   name = "github.com/ugorji/go"
@@ -983,8 +988,8 @@
     "trace/internal",
     "trace/propagation"
   ]
-  revision = "10cec2c05ea2cfb8b0d856711daedc49d8a45c56"
-  version = "v0.9.0"
+  revision = "f7730ab009c252771b19074bd05217d054c0c93f"
+  version = "v0.10.0"
 
 [[projects]]
   branch = "master"
@@ -1027,7 +1032,7 @@
     "internal/timeseries",
     "trace"
   ]
-  revision = "2491c5de3490fced2f6cff376127c667efeed857"
+  revision = "8e0cdda24ed423affc8f35c241e5e9b16180338e"
 
 [[projects]]
   branch = "master"
@@ -1039,13 +1044,13 @@
     "jws",
     "jwt"
   ]
-  revision = "cdc340f7c179dbbfa4afd43b7614e8fcadde4269"
+  revision = "dd5f5d8e78ce062a4aa881dff95a94f2a0fd405a"
 
 [[projects]]
   branch = "master"
   name = "golang.org/x/sys"
   packages = ["unix"]
-  revision = "7c87d13f8e835d2fb3a70a2912c811ed0c1d241b"
+  revision = "89da893103a6ed6c87fb4bb5c19fcf97812df621"
 
 [[projects]]
   name = "golang.org/x/text"
@@ -1094,7 +1099,7 @@
     "storage/v1",
     "transport/http"
   ]
-  revision = "d7aa31fbd7da4467a8056610e654315a4c1f068e"
+  revision = "4f7dd2b006a4ffd9fd683c1c734d2fe91ca0ea1c"
 
 [[projects]]
   name = "google.golang.org/appengine"
@@ -1122,7 +1127,7 @@
     "googleapis/rpc/code",
     "googleapis/rpc/status"
   ]
-  revision = "7bb2a897381c9c5ab2aeb8614f758d7766af68ff"
+  revision = "11a468237815f3a3ddf9f7c6e8b6b3b382a24d15"
 
 [[projects]]
   name = "google.golang.org/grpc"
