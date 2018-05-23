@@ -22,8 +22,8 @@
     "arm/storage",
     "storage"
   ]
-  revision = "2d1d76c9013c4feb6695a2346f0e66ea0ef77aa6"
-  version = "v11.3.0-beta"
+  revision = "21b68149ccf7c16b3f028bb4c7fd0ab458fe308f"
+  version = "v12.5.0-beta"
 
 [[projects]]
   name = "github.com/Azure/go-autorest"
@@ -35,8 +35,8 @@
     "autorest/to",
     "autorest/validation"
   ]
-  revision = "9157a90cf06a2f000b8a67181e1dd501cdb5753e"
-  version = "v10.8.2"
+  revision = "fc3b03a2d2d1f43fad3007038bd16f044f870722"
+  version = "v9.10.0"
 
 [[projects]]
   branch = "master"
@@ -228,8 +228,8 @@
     "service/waf",
     "service/wafregional"
   ]
-  revision = "cf00d544fc3c02f31e05e8d02444a1325d3a840b"
-  version = "v1.13.53"
+  revision = "fad131ddc707880428615dc8bc1587b55fb46d74"
+  version = "v1.13.54"
 
 [[projects]]
   name = "github.com/beevik/etree"
@@ -312,7 +312,7 @@
   revision = "c2fbb09e6c084fe3ebe95fce0f1cc5297c152026"
 
 [[projects]]
-  branch = "less-types"
+  branch = "master"
   name = "github.com/exoscale/egoscale"
   packages = ["."]
   revision = "7fbe17ac9ea7191b1e2e058d113764693305a54b"
@@ -442,7 +442,7 @@
   branch = "master"
   name = "github.com/gophercloud/utils"
   packages = ["openstack/clientconfig"]
-  revision = "799f10b8f9911ed4c52827454b8acaa9ed5cdf4b"
+  revision = "afce78e977c56ca5407957bf67e8ecc56aab601d"
 
 [[projects]]
   branch = "master"
@@ -569,7 +569,7 @@
     "hclparse",
     "hcltest"
   ]
-  revision = "9db880accff19d9bd953958df738ef0c02b4a311"
+  revision = "bbbd0ef30d601e5ecf89e492d0842170f144db85"
 
 [[projects]]
   branch = "master"
@@ -751,6 +751,11 @@
   revision = "a47f63f234b2a2c87e52d7f1c72a9a7f87bd7880"
 
 [[projects]]
+  name = "github.com/marstr/guid"
+  packages = ["."]
+  revision = "8bdf7d1a087ccc975cf37dd6507da50698fd19ca"
+
+[[projects]]
   name = "github.com/masterzen/azure-sdk-for-go"
   packages = [
     "core/http",
@@ -814,7 +819,7 @@
   branch = "master"
   name = "github.com/mitchellh/go-homedir"
   packages = ["."]
-  revision = "b8bc1bf767474819792c23f32d8286a45736f1c6"
+  revision = "3864e76763d94a6df2f9960b16a20a33da9f9a66"
 
 [[projects]]
   branch = "master"
@@ -907,12 +912,6 @@
 
 [[projects]]
   name = "github.com/satori/go.uuid"
-  packages = ["."]
-  revision = "f58768cc1a7a7e77a3bd49e98cdd21419399b6a3"
-  version = "v1.2.0"
-
-[[projects]]
-  name = "github.com/satori/uuid"
   packages = ["."]
   revision = "f58768cc1a7a7e77a3bd49e98cdd21419399b6a3"
   version = "v1.2.0"
@@ -1032,7 +1031,7 @@
     "internal/timeseries",
     "trace"
   ]
-  revision = "8e0cdda24ed423affc8f35c241e5e9b16180338e"
+  revision = "9ef9f5bb98a1fdc41f8cf6c250a4404b4085e389"
 
 [[projects]]
   branch = "master"
@@ -1050,7 +1049,7 @@
   branch = "master"
   name = "golang.org/x/sys"
   packages = ["unix"]
-  revision = "89da893103a6ed6c87fb4bb5c19fcf97812df621"
+  revision = "88eb85aaee56831ad49eaf7aa80d73de9814cde2"
 
 [[projects]]
   name = "golang.org/x/text"
@@ -1171,6 +1170,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "aea59d3eeb882af5ca499e11d82b99fbd5d97a69fc0b866962b821385292b584"
+  inputs-digest = "800b46f98d7701db21f7d153e31532cb67e6cd1ac3694f28ecbe52923368b355"
   solver-name = "gps-cdcl"
   solver-version = 1

@@ -1,7 +1,7 @@
 [[constraint]]
   name = "github.com/exoscale/egoscale"
   #version = "0.10.0"
-  branch = "less-types"
+  branch = "master"
 
 [[constraint]]
   name = "github.com/hashicorp/terraform"
