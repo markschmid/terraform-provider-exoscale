@@ -1,0 +1,126 @@
+---
+ssh_key_path: ~/.ssh/id_no_password_rsa
+nodes:
+  - address: 159.100.251.216
+    user: ubuntu
+    role:
+      - controlplane
+      - worker
+      - etcd
+    labels:
+      app: ingress
+
+services:
+  etcd:
+  kube-api:
+    service_cluster_ip_range: 10.43.0.0/16
+    pod_security_policty: false
+  kube-controller:
+    cluster_cidr: 10.42.0.0/16
+    service_cluster_ip_range: 10.43.0.0/16
+  scheduler:
+  kubelet:
+    cluster_domain: cluster.local
+    cluster_dns_server: 10.43.0.10
+  kubeproxy:
+
+authorization:
+  mode: rbac
+
+ignore_docker_version: false
+
+kubernetes_version: v1.9.5
+
+ingress:
+  provider: nginx
+  extra_args:
+    enable-ssl-passthrough: ""
+
+addons: |-
+  ---
+  kind: Namespace
+  apiVersion: v1
+  metadata:
+    name: cattle-system
+  ---
+  kind: ServiceAccount
+  apiVersion: v1
+  metadata:
+    name: cattle-admin
+    namespace: cattle-system
+  ---
+  kind: ClusterRoleBinding
+  apiVersion: rbac.authorization.k8s.io/v1
+  metadata:
+    name: cattle-crb
+    namespace: cattle-system
+  subjects:
+  - kind: ServiceAccount
+    name: cattle-admin
+    namespace: cattle-system
+  roleRef:
+    kind: ClusterRole
+    name: cluster-admin
+    apiGroup: rbac.authorization.k8s.io
+  ---
+  apiVersion: v1
+  kind: Service
+  metadata:
+    namespace: cattle-system
+    name: cattle-service
+    labels:
+      app: cattle
+  spec:
+    ports:
+    - port: 80
+      targetPort: 80
+      protocol: TCP
+      name: http
+    - port: 443
+      targetPort: 443
+      protocol: TCP
+      name: https
+    selector:
+      app: cattle
+  ---
+  apiVersion: extensions/v1beta1
+  kind: Ingress
+  metadata:
+    namespace: cattle-system
+    name: cattle-ingress-http
+    annotations:
+      nginx.ingress.kubernetes.io/proxy-connect-timeout: "30"
+      nginx.ingress.kubernetes.io/proxy-read-timeout: "1800"   # Max time in seconds for ws to remain shell window open
+      nginx.ingress.kubernetes.io/proxy-send-timeout: "1800"   # Max time in seconds for ws to remain shell window open
+      nginx.ingress.kubernetes.io/ssl-passthrough: "true"      # Enable ssl-passthrough to backend.
+  spec:
+    rules:
+    - host: 159.100.251.216.xip.io
+      http:
+        paths:
+        - backend:
+            serviceName: cattle-service
+            servicePort: 443
+  ---
+  kind: Deployment
+  apiVersion: extensions/v1beta1
+  metadata:
+    namespace: cattle-system
+    name: cattle
+  spec:
+    replicas: 1
+    template:
+      metadata:
+        labels:
+          app: cattle
+      spec:
+        serviceAccountName: cattle-admin
+        containers:
+        - image: rancher/rancher:master
+          imagePullPolicy: Always
+          name: cattle-server
+          ports:
+          - containerPort: 80
+            protocol: TCP
+          - containerPort: 443
+            protocol: TCP
