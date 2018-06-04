@@ -102,8 +102,9 @@ func testAccCheckElasticIPDestroy(s *terraform.State) error {
 			}
 			return err
 		}
+		return fmt.Errorf("ipAddress: %#v still exists", key)
 	}
-	return fmt.Errorf("IPAddress: still exists")
+	return nil
 }
 
 var testAccElasticIPCreate = `
