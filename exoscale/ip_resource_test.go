@@ -90,7 +90,10 @@ func testAccCheckElasticIPDestroy(s *terraform.State) error {
 			continue
 		}
 
-		key := &egoscale.IPAddress{ID: rs.Primary.ID}
+		key := &egoscale.IPAddress{
+			ID:        rs.Primary.ID,
+			IsElastic: true,
+		}
 		if err := client.Get(key); err != nil {
 			if r, ok := err.(*egoscale.ErrorResponse); ok {
 				if r.ErrorCode == egoscale.ParamError {
